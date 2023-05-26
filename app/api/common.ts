@@ -38,6 +38,12 @@ export async function requestOpenai(req: NextRequest) {
       ...(process.env.OPENAI_ORG_ID && {
         "OpenAI-Organization": process.env.OPENAI_ORG_ID,
       }),
+      ...(process.env.BUSINESS && {
+        Business: process.env.BUSINESS,
+      }),
+      ...(process.env.SECRET && {
+        Secret: process.env.SECRET,
+      }),
     },
     cache: "no-store",
     method: req.method,
