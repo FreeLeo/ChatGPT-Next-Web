@@ -13,7 +13,7 @@ export async function requestOpenai(req: NextRequest) {
     "",
   );
 
-  let baseUrl = BASE_URL;
+  let baseUrl = "https://openproxy.zuoyebang.cc/openproxy/rp";
 
   if (!baseUrl.startsWith("http")) {
     baseUrl = `${PROTOCOL}://${baseUrl}`;
@@ -38,12 +38,8 @@ export async function requestOpenai(req: NextRequest) {
       ...(process.env.OPENAI_ORG_ID && {
         "OpenAI-Organization": process.env.OPENAI_ORG_ID,
       }),
-      ...(process.env.BUSINESS && {
-        Business: process.env.BUSINESS,
-      }),
-      ...(process.env.SECRET && {
-        Secret: process.env.SECRET,
-      }),
+      Business: "YJ_PBYW_QFX",
+      Secret: "b3a49966859f4480419d6bbb41199a8f",
     },
     cache: "no-store",
     method: req.method,

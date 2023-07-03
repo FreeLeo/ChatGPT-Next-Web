@@ -9,6 +9,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 RUN yarn config set registry 'https://registry.npmmirror.com/'
+RUN yarn install --network-timeout 300000
 RUN yarn install
 
 FROM base AS builder
