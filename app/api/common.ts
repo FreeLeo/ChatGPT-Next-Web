@@ -13,10 +13,14 @@ export async function requestOpenai(req: NextRequest) {
     "",
   );
 
-  let baseUrl = process.env.OPENAI_BASE_URL;
+  let baseUrl = BASE_URL;
 
   if (!baseUrl.startsWith("http")) {
     baseUrl = `${PROTOCOL}://${baseUrl}`;
+  }
+
+  if (process.env.OPENAI_BASE_URL) {
+    baseUrl = process.env.OPENAI_BASE_URL;
   }
 
   console.log("[Proxy] ", openaiPath);
