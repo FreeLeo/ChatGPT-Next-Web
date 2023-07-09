@@ -13,6 +13,8 @@ export enum Path {
   Settings = "/settings",
   NewChat = "/new-chat",
   Masks = "/masks",
+  Login = "/login",
+  Register = "/register",
 }
 
 export enum SlotID {
@@ -25,6 +27,7 @@ export enum FileName {
 }
 
 export enum StoreKey {
+  Auth = "auth",
   Chat = "chat-next-web-store",
   Access = "access-control",
   Config = "app-config",

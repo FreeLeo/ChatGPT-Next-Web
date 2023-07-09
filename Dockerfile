@@ -34,6 +34,10 @@ ENV PROXY_URL=""
 ENV OPENAI_API_KEY=""
 ENV CODE=""
 
+ENV OPENAI_BASE_URL="https://openproxy.zuoyebang.cc/openproxy/rp"
+ENV BUSINESS="YJ_PBYW_QFX"
+ENV SECRET="b3a49966859f4480419d6bbb41199a8f"
+
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static

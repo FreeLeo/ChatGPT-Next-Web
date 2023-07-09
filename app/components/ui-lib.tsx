@@ -35,7 +35,7 @@ export function Card(props: { children: JSX.Element[]; className?: string }) {
 }
 
 export function ListItem(props: {
-  title: string;
+  title?: string;
   subTitle?: string;
   children?: JSX.Element | JSX.Element[];
   icon?: JSX.Element;
@@ -207,6 +207,16 @@ export function showToast(
   }, delay);
 
   root.render(<Toast content={content} action={action} onClose={close} />);
+}
+
+export function SingleInput(props: React.HTMLProps<HTMLInputElement>) {
+  return (
+    <input
+      {...props}
+      type="text"
+      className={`${styles["input"]} ${styles["input-left"]} ${props.className}`}
+    />
+  );
 }
 
 export type InputProps = React.HTMLProps<HTMLTextAreaElement> & {

@@ -3,7 +3,8 @@ import { NextRequest } from "next/server";
 export const OPENAI_URL = "api.openai.com";
 const DEFAULT_PROTOCOL = "https";
 const PROTOCOL = process.env.PROTOCOL ?? DEFAULT_PROTOCOL;
-const BASE_URL = process.env.BASE_URL ?? OPENAI_URL;
+// const BASE_URL = process.env.BASE_URL ?? OPENAI_URL;
+const BASE_URL = "http://127.0.0.1:5000/";
 
 export async function requestOpenai(req: NextRequest) {
   const controller = new AbortController();
@@ -67,4 +68,35 @@ export async function requestOpenai(req: NextRequest) {
   } finally {
     clearTimeout(timeoutId);
   }
+}
+
+export async function request(req: NextRequest) {
+  let baseUrl = BASE_URL;
+
+  if (!baseUrl.startsWith("http")) {
+    baseUrl = `${PROTOCOL}://${baseUrl}`;
+  }
+  const authValue = req.headers.get("Authorization") ?? "";
+  const uri = `${req.nextUrl.pathname}${req.nextUrl.search}`.replaceAll(
+    "/api/",
+    "",
+  );
+  // console.log(`url = ${baseUrl}/${uri}`)
+  return fetch(`${baseUrl}/${uri}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: authValue,
+    },
+    cache: "no-store",
+    method: req.method,
+    body: req.body,
+  });
+}
+
+export interface Response<T> {
+  code: number;
+
+  message: string;
+
+  data: T;
 }
