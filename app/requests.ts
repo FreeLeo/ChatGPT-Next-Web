@@ -231,7 +231,7 @@ export async function requestRegister(
   captchaId: string,
   captchaInput: string,
   email: string,
-  code: string,
+  verification_code: string,
   options?: {
     onError: (error: Error, statusCode?: number) => void;
   },
@@ -251,7 +251,7 @@ export async function requestRegister(
         captchaId,
         captcha: captchaInput,
         email,
-        code,
+        verification_code,
       }), //,
       //signal: controller.signal,
     });

@@ -23,6 +23,7 @@ import {
 } from "react-router-dom";
 import { SideBar } from "./sidebar";
 import { useAppConfig } from "../store/config";
+import { Register } from "./register";
 
 export function Loading(props: { noLogo?: boolean }) {
   return (
@@ -133,6 +134,7 @@ function Screen() {
           <Route path={Path.Chat} element={<Chat />} />
           <Route path={Path.Settings} element={<Settings />} />
           <Route path={Path.Login} element={<Login />} />
+          <Route path={Path.Register} element={<Register />} />
         </Routes>
       </div>
     </div>
