@@ -98,7 +98,12 @@ const cn = {
       Success: "登录成功",
       Logining: "登录中……",
     },
+    GoToForgetPassword: "忘记/重置密码",
     GoToRegister: "前往注册",
+  },
+  ForgetPasswordPage: {
+    Title: "重置密码",
+    ForgetPassword: "重置密码",
   },
   RegisterPage: {
     Title: "注册",

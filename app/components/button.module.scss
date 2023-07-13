@@ -27,6 +27,15 @@
       fill: white !important;
     }
   }
+
+  &.second {
+    background-color: var(--second);
+    //color: white;
+
+    // path {
+    //   fill: white !important;
+    // }
+  }
 }
 
 .shadow {
@@ -35,6 +44,11 @@
 
 .border {
   border: var(--border-in-light);
+}
+
+.block {
+  display: block;
+  width: 100%;
 }
 
 .icon-button:hover {
